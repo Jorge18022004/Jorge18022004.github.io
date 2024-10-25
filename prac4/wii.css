@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    margin: 20px auto;
+}
+
+.wii-image {
+    width: 300px;
+}
+
+.buttons {
+    margin: 20px 0;
+}
+
+.description {
+    margin: 20px;
+    color: green;
+}
+
+.price {
+    font-size: 20px;
+    color: black;
+}

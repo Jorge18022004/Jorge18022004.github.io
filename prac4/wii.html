@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wii</title>
+    <link rel="stylesheet" href="wii.css">
+</head>
+<body>
+    <h1>Consola Wii</h1>
+    <div class="container">
+        <img id="myImage" src="wii.png" style="width: 500px">
+        <div class="buttons">
+            <button onclick="document.getElementById('myImage').src='wii.png'">En vertical</button>
+            <button onclick="document.getElementById('myImage').src='wiidelado.webp'">De lado</button>
+            <button onclick="document.getElementById('myImage').src='wiiacostada.jpg'">Acostada</button>
+            <br>
+        </div>
+        <div class="buttons">
+            <button onclick="toggleDescription()">Mostrar/Ocultar descripcion</button>
+            <button onclick="highlightPrice()">Resaltar precio</button>
+        </div>
+        <div id="description" class="description" style="display: none;">
+            <p>¡Vende tu diversión en casa! Wii en excelente estado </br>
+
+<br/>¿Buscas una forma divertida de disfrutar en familia o con amigos? ¡La consola Wii es perfecta para ti! Este sistema de juego revolucionario combina ejercicio y entretenimiento de una manera única.</br>
+
+<br/>Características:</br>
+
+<br/>Estado: Usada, en excelente condición, con todos los accesorios incluidos.</br>
+
+<br/>Juegos: Viene con Mario Kart Wii, Super Smash Bros Brawl, etc. listos para que comiences a jugar.</br>
+
+<br/>Controles: Incluye controles originales y accesorios, como el Wii Balance Board.</br>
+
+<br/>Multijugador: Ideal para compartir momentos inolvidables con amigos y familiares.</br>
+
+<br/>Fácil de usar: Perfecta para jugadores de todas las edades.</br></p>
+        </div>
+        <p id="price" class="price">$249.99</p>
+    </div>
+    <script src="wii.js"></script>
+</body>
+</html>
