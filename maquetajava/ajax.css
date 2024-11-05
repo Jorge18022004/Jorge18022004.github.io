@@ -1,0 +1,56 @@
+body {
+    font-family: 'Bauhaus 93';
+    margin: 0;
+}
+
+header {
+    background-color: #FFA500;
+    color: white;
+    font-family: 'Bauhaus 93';
+    padding: 1em;
+    text-align: center;
+}
+
+header h2 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+}
+
+aside {
+    width: 65px;
+    background-color: #EFB810;
+    padding: 15px;
+}
+
+main {
+    flex-grow: 1;
+    padding: 15px;
+    overflow: auto;
+}
+
+footer {
+    background-color: #000080;
+    color: white;
+    font-family: 'Bauhaus 93';
+    text-align: center;
+    padding: 1em;
+}
+
+.content-text {
+    white-space: pre-wrap;
+    font-family: 'Bauhaus 93';
+    font-size: 24px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.centrar-imagen {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

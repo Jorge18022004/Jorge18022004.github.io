@@ -1,0 +1,154 @@
+# C++
+
+<img src= "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" class="centrar-imagen" alt="c">
+
+C++ es un lenguaje de programación diseñado en 1979 por Bjarne Stroustrup. La intención de su creación fue extender al lenguaje de programación C y añadir mecanismos que permiten la manipulación de objetos. En ese sentido, desde el punto de vista de los lenguajes orientados a objetos, C++ es un lenguaje híbrido.
+Posteriormente se añadieron facilidades de programación genérica, que se sumaron a los paradigmas de programación estructurada y programación orientada a objetos. Por esto se suele decir que el C++ es un lenguaje de programación multiparadigma.
+Actualmente existe un estándar, denominado ISO C++, al que se han adherido la mayoría de los fabricantes de compiladores más modernos. Existen también algunos intérpretes, tales como ROOT.
+El nombre «C++» fue propuesto por Rick Mascitti en el año 1983, cuando el lenguaje fue utilizado por primera vez fuera de un laboratorio científico. Antes se había usado el nombre «C con clases». En C++, la expresión «C++» significa «incremento de C» y se refiere a que C++ es una extensión de C.
+
+## Características de C++
+Su sintaxis es heredada del lenguaje C.
+Programa orientado a objetos (POO).
+Permite la agrupación de instrucciones.
+Es portátil y tiene un gran número de compiladores en diferentes plataformas y sistemas operativos.
+Permite la separación de un programa en módulos que admiten compilación independiente.
+Es un lenguaje de alto nivel.
+
+## Ejemplos
+A continuación se cita un programa de ejemplo Hola mundo escrito en C++:
+
+#include <iostream>
+int main()
+{
+    std::cout << "Hola mundo!" << std::endl;
+    return 0;
+}
+
+Al usar la directiva #include se le dice al compilador que busque e interprete todos los elementos definidos en el archivo que acompaña la directiva (en este caso, iostream). Para evitar sobrescribir los elementos ya definidos al ponerles igual nombre, se crearon los espacios de nombres o namespace del singular en inglés. En este caso hay un espacio de nombres llamado std, que es donde se incluyen las definiciones de todas las funciones y clases que conforman la biblioteca estándar de C++. Al incluir la sentencia using namespace std le estamos diciendo al compilador que usaremos el espacio de nombres std por lo que no tendremos que incluirlo cuando usemos elementos de este espacio de nombres, como pueden ser los objetos cout y cin, que representan el flujo de salida estándar (típicamente la pantalla o una ventana de texto) y el flujo de entrada estándar (típicamente el teclado).
+La definición de funciones es igual que en C, salvo por la característica de que si main no va a recoger argumentos, no tenemos por qué ponérselos, a diferencia de C, donde había que ponerlos explícitamente, aunque no se fueran a usar. Queda solo comentar que el símbolo << se conoce como operador de inserción, y grosso modo está enviando a cout lo que queremos mostrar por pantalla para que lo pinte, en este caso la cadena "Hola mundo". El mismo operador << se puede usar varias veces en la misma sentencia, de forma que gracias a esta característica podremos concatenar el objeto endl al final, cuyo resultado será imprimir un retorno de línea. El operador += se utiliza para sumar el valor de la expresión a la variable a la que se le aplica. En este caso específico del código proporcionado, la línea «inverso += (contraseña % 10) * 100;» está sumando al valor actual de la variable «inverso» el resultado de multiplicar el último dígito de la variable «contraseña» por 100. Esto se repite para los otros dígitos de la contraseña para construir el número invertido.
+
+##Tipos de datos
+C++ tiene los siguientes tipos fundamentales:
+
+Caracteres: char (también es un entero), wchar_t
+Enteros: short, int, long, long long
+Números en coma flotante: float, double, long double
+Booleanos: bool
+Vacío: void
+El modificador unsigned se puede aplicar a enteros para obtener números sin signo (por omisión los enteros contienen signo), con lo que se consigue un rango mayor de números naturales.
+
+## Principios
+Todo programa en C++ debe tener la función principal main() (a no ser que se especifique en tiempo de compilación otro punto de entrada, que en realidad es la función que tiene el main())
+
+int main()
+{}
+
+La función principal del código fuente main debe tener uno de los siguientes prototipos:
+int main()
+int main(int argc, char** argv)
+Aunque no es estándar algunas implementaciones permiten
+int main(int argc, char** argv, char** env)
+La primera es la forma por omisión de un programa que no recibe parámetros ni argumentos. La segunda forma tiene dos parámetros: argc, un número que describe el número de argumentos del programa (incluyendo el nombre del programa mismo), y argv, un puntero a un array de punteros, de argc elementos, donde el elemento argv[i] representa el i-ésimo argumento entregado al programa. En el tercer caso se añade la posibilidad de poder acceder a las variables de entorno de ejecución de la misma forma que se accede a los argumentos del programa, pero reflejados sobre la variable env.
+El tipo de retorno de main es un valor entero int. Al finalizar la función main, debe incluirse el valor de retorno (por ejemplo, return 0;, aunque el estándar prevé solamente dos posibles valores de retorno: EXIT_SUCCESS y EXIT_FAILURE, definidas en el archivo cstdlib), o salir por medio de la función exit. Alternativamente puede dejarse en blanco, en cuyo caso el compilador es responsable de agregar la salida adecuada.
+
+## El concepto de clase
+Los objetos en C++ son abstraídos mediante una clase. Según el paradigma de la programación orientada a objetos un objeto consta de:
+Identidad, que lo diferencia de otros objetos (Nombre que llevará la clase a la que pertenece dicho objeto).
+Métodos o funciones miembro.
+Atributos o variables miembro.
+Un ejemplo de clase que podemos tomar es la clase perro. Cada perro comparte unas características (atributos). Su número de patas, el color de su pelaje o su tamaño son algunos de sus atributos. Las funciones que lo hagan ladrar, cambiar su comportamiento... esas son las funciones de la clase.
+Este es otro ejemplo de una clase:
+
+class Punto
+{
+//por omisión, los miembros son 'private' para que solo se puedan modificar desde la propia clase.
+private:
+        // Variable miembro privada
+        int id;
+protected:
+        // Variables miembro protegidas
+        int x;
+        int y;
+public:
+        // Constructor
+        Punto();
+        // Destructor
+        ~Punto();
+        // Funciones miembro o métodos
+        int ObtenerX();
+        int ObtenerY();
+};
+
+### Constructores
+Son unos métodos especiales que se ejecutan automáticamente al crear un objeto de la clase. En su declaración no se especifica el tipo de dato que devuelven, y poseen el mismo nombre que la clase a la que pertenecen. Al igual que otros métodos, puede haber varios constructores sobrecargados, aunque no pueden existir constructores virtuales.
+Como característica especial a la hora de implementar un constructor, justo después de la declaración de los parámetros, se encuentra lo que se llama «lista de inicializadores». Su objetivo es llamar a los constructores de los atributos que conforman el objeto a construir.
+Cabe destacar que no es necesario declarar un constructor al igual que un destructor, pues el compilador lo puede hacer, aunque no es la mejor forma de programar.
+Tomando el ejemplo de la Clase Punto, si deseamos que cada vez que se cree un objeto de esta clase las coordenadas del punto sean igual a cero podemos agregar un constructor como se muestra a continuación:
+
+class Punto
+{
+  public:
+
+  float x;  // Coordenadas del punto
+  float y;
+
+                // Constructor
+  Punto() : x(0), y(0){ // Inicializamos las variables "x" e "y"
+  }
+};
+
+// Main para demostrar el funcionamiento de la clase
+
+#include <iostream> // Esto nos permite utilizar "cout"
+
+using namespace std;
+
+int main () {
+  Punto MiPunto;         // creamos un elemento de la clase Punto llamado MiPunto
+
+  cout << "Coordenada X: " << MiPunto.x << endl;    // mostramos el valor acumulado en la variable x
+  cout << "Coordenada Y: " << MiPunto.y << endl;    // mostramos el valor acumulado en la variable y
+  getchar(); // le indicamos al programa que espere al buffer de entrada (detenerse)
+  return 0;
+}
+
+Si compilamos y ejecutamos el anterior programa, obtenemos una salida que debe ser similar a la siguiente:
+Coordenada X: 0 Coordenada Y: 0
+Existen varios tipos de constructores en C++:
+Constructor predeterminado. Es el constructor que no recibe ningún parámetro en la función. Si no se definiera ningún constructor, el sistema proporcionaría uno predeterminado. Es necesario para la construcción de estructuras y contenedores de la STL.
+Constructor de copia. Es un constructor que recibe un objeto de la misma clase, y realiza una copia de los atributos del mismo. Al igual que el predeterminado, si no se define, el sistema proporciona uno.
+Constructor de conversión. Este constructor, recibe como único parámetro, un objeto o variable de otro tipo distinto al suyo propio. Es decir, convierte un objeto de un tipo determinado a otro objeto del tipo que estamos generando.
+Constructores + Memoria heap Un objeto creado de la forma que se vio hasta ahora, es un objeto que vive dentro del scope(las llaves { }) en el que fue creado. Para que un objeto pueda seguir viviendo cuando se saque del scope en el que se creó, se lo debe crear en memoria heap. Para esto, se utiliza el operador new, el cual asigna memoria para almacenar al objeto creado, y además llama a su constructor(por lo que se le pueden enviar parámetros). El operador new se utiliza de la siguiente manera:
+
+int main() {
+  Punto *unPunto = new Punto(); //esto llama al constructor que se describe más arriba
+  delete unPunto;               //no hay que olvidarse de liberar la memoria ocupada por el objeto(ver la sección destructores, más abajo)
+  return 0;
+}
+
+Además, con el operador new[] se pueden crear arrays (colecciones o listas ordenadas) de tamaño dinámico:
+
+Punto *asignar(int cuantos) {
+  return new Punto[cuantos]; //asigna un array de 'cuantos' puntos(se llama el constructor que se muestra más arriba), y se retorna.
+}
+
+### Destructores
+Los destructores son funciones miembro especiales llamadas automáticamente en la ejecución del programa, y por tanto no tienen por qué ser llamadas explícitamente por el programador. Sus principales cometidos son:
+Liberar los recursos computacionales que el objeto de dicha clase haya adquirido en tiempo de ejecución al expirar este.
+Quitar los vínculos que pudiesen tener otros recursos u objetos con este.
+Los destructores son invocados automáticamente al alcanzar el flujo del programa el fin del ámbito en el que está declarado el objeto. El único caso en el que se debe invocar explícitamente al destructor de un objeto es cuando este fue creado mediante el operador new, es decir, que este vive en memoria heap, y no en la pila de ejecución del programa. La invocación del destructor de un objeto que vive en heap se realiza a través del operador delete o delete[] para arrays. Ejemplo:
+
+int main() {
+  int *unEntero = new int(12);         //asignamos un entero en memoria heap con el valor 12
+  int *arrayDeEnteros = new int[25]; //asignamos memoria para 25 enteros(no están inicializados)
+  delete unEntero;                     //liberamos la memoria que ocupaba unEntero
+  delete[] arrayDeEnteros;           //liberamos la memoria ocupada por arrayDeEnteros
+  return 0;
+}
+
+Si no se utilizara el operador delete y delete[] en ese caso, la memoria ocupada por unEntero y arrayDeEnteros respectivamente, quedaría ocupada sin sentido. Cuando una porción de memoria queda ocupada por una variable que ya no se utiliza, y no hay forma de acceder a ella, se denomina un 'memory leak'. En aplicaciones grandes, si ocurren muchos memory leaks, el programa puede terminar ocupando bastante más memoria RAM de la que debería, lo que no es para nada conveniente. Es por esto, que el manejo de memoria heap debe usarse conscientemente.
+Existen dos tipos de destructores pueden ser públicos o privados, según si se declaran:
+Si es público se llama desde cualquier parte del programa para destruir el objeto.
+Si es privado no se permite la destrucción del objeto por el usuario.
+El uso de destructores es clave en el concepto de Adquirir Recursos es Inicializar.
