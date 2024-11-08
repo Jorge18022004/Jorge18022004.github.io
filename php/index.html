@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Formulario para Calculadora </title>
+		<style>
+        	body {
+            	font-family: 'Pokemon Solid';
+            	background-color: #ADD8E6;
+            	display: flex;
+            	justify-content: center;
+            	align-items: center;
+            	height: 100vh;
+            	margin: 0;
+            	color: gold;
+            	text-shadow: -1px -1px 0 #000080, 1px -1px 0 #000080, -1px 1px 0 #000080, 1px 1px 0 #000080;
+        	}
+
+        	.form-container {
+            	background-color: #fff;
+            	padding: 30px;
+            	border-radius: 8px;
+            	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            	width: 100%;
+            	max-width: 400px;
+            	text-align: center;
+        	}
+
+        	h1 {
+            	font-size: 32px;
+            	margin-bottom: 20px;
+            	color: gold;
+            	text-shadow: -1px -1px 0 #000080, 1px -1px 0 #000080, -1px 1px 0 #000080, 1px 1px 0 #000080;
+        	}
+
+        	input[type="text"] {
+            	width: 80%;
+            	padding: 10px;
+            	margin: 10px 0;
+            	border: 2px solid #ccc;
+            	border-radius: 4px;
+            	font-size: 16px;
+            	transition: border-color 0.3s;
+        	}
+
+        	input[type="text"]:focus {
+            	border-color: #5fa8d3;
+        	}
+
+        	input[type="radio"] {
+            	margin: 10px 5px;
+            	font-size: 16px;
+        	}
+
+        	input[type="submit"] {
+            	background-color: #4CAF50;
+            	padding: 12px 20px;
+            	border: none;
+            	border-radius: 5px;
+            	cursor: pointer;
+            	font-size: 16px;
+            	margin-top: 20px;
+            	transition: background-color 0.3s;
+            	font-family: 'Pokemon Solid';
+            	color: gold;
+            	text-shadow: -1px -1px 0 #000080, 1px -1px 0 #000080, -1px 1px 0 #000080, 1px 1px 0 #000080;
+        	}
+
+        	input[type="submit"]:hover {
+            	background-color: #45a049;
+        	}
+
+        	.input-group {
+            	margin-bottom: 15px;
+        	}
+    	</style>
+	</head>
+	<body>
+		<div class="form-container">
+			<h1> CALCULADORA </h1>
+			<form action="calcular.php" method="post">
+				<div class="input-group">
+					<label for="valor1"> Ingrese el primer valor: </label> <br>
+					<input type="text" id="valor1" name="valor1" required>
+				</div>
+				<div class="input-group">
+					<label for="valor2"> Ingrese el segundo valor: </label> <br>
+					<input type="text" id="valor2" name="valor2" required>
+				</div>
+				<div class="input-group">
+                	<label> Operación: </label> <br>
+                	<input type="radio" name="radio1" value="suma" id="suma" required> <label for="suma"> Sumar </label>
+                	<input type="radio" name="radio1" value="resta" id="resta" required> <label for="resta"> Restar </label>
+                	<input type="radio" name="radio1" value="multi" id="multi" required> <label for="multi"> Multiplicar </label>
+                	<input type="radio" name="radio1" value="dividir" id="dividir" required> <label for="dividir"> Dividir </label>
+            	</div>
+            	<input type="submit" name="operar" value="Calcular">
+            	<p> Developed by Jorge Rubio Ramirez </p>
+			</form>
+		</div>
+	</body>
+</html>
